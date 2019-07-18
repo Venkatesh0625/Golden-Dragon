@@ -147,8 +147,6 @@ texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 8 )
 expand = true
 stretch_mode = 5
-[connection signal="text_changed" from="VBoxContainer/NameLabel/Name" to="." method="_on_Name_text_changed"]
-[connection signal="text_changed" from="VBoxContainer/IPLabel/IP" to="." method="_on_IP_text_changed"]
 [connection signal="text_changed" from="VBoxContainer/PortLabel/Port" to="." method="_on_Port_text_changed"]
 [connection signal="pressed" from="VBoxContainer/Host_Join/JoinButton" to="." method="_on_JoinButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/Host_Join/CreateButton" to="." method="_on_CreateButton_pressed"]
