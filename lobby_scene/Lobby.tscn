@@ -1,0 +1,154 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Player/Ninja PNG/1024 pixel/Items & FireBall/item5.png" type="Texture" id=1]
+[ext_resource path="res://lobby_scene/fonts/montserrat_eb_48.tres" type="DynamicFont" id=2]
+[ext_resource path="res://lobby_scene/fonts/montserrat_eb_32.tres" type="DynamicFont" id=3]
+[ext_resource path="res://game_assets/Montserrat-ExtraBold.tres" type="DynamicFontData" id=4]
+[ext_resource path="res://lobby_scene/buttons/join.png" type="Texture" id=5]
+[ext_resource path="res://lobby_scene/buttons/join-pressed.png" type="Texture" id=6]
+[ext_resource path="res://lobby_scene/buttons/create.png" type="Texture" id=7]
+[ext_resource path="res://lobby_scene/buttons/create-pressed.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 4 )
+
+[node name="Lobby" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 5.0
+margin_bottom = 5.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1032.0
+margin_bottom = 597.0
+texture = ExtResource( 1 )
+stretch_mode = 7
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1028.0
+margin_bottom = 599.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -315.0
+margin_top = -256.0
+margin_right = 315.0
+margin_bottom = 192.0
+custom_constants/separation = 20
+
+[node name="Title2" type="Label" parent="VBoxContainer"]
+margin_right = 630.0
+margin_bottom = 52.0
+custom_fonts/font = ExtResource( 2 )
+text = "Lobby"
+align = 1
+
+[node name="NameLabel" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 72.0
+margin_right = 630.0
+margin_bottom = 124.0
+custom_constants/separation = 20
+
+[node name="Label" type="Label" parent="VBoxContainer/NameLabel"]
+margin_right = 255.0
+margin_bottom = 52.0
+custom_fonts/font = ExtResource( 2 )
+text = "Your name:"
+align = 2
+
+[node name="Name" type="LineEdit" parent="VBoxContainer/NameLabel"]
+margin_left = 275.0
+margin_right = 630.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+
+[node name="IPLabel" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 144.0
+margin_right = 630.0
+margin_bottom = 196.0
+custom_constants/separation = 20
+
+[node name="Label" type="Label" parent="VBoxContainer/IPLabel"]
+margin_right = 252.0
+margin_bottom = 52.0
+custom_fonts/font = ExtResource( 2 )
+text = "IP Address:"
+align = 2
+
+[node name="IP" type="LineEdit" parent="VBoxContainer/IPLabel"]
+margin_left = 272.0
+margin_right = 630.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+placeholder_text = "192.168.x.x"
+placeholder_alpha = 0.2
+
+[node name="PortLabel" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 216.0
+margin_right = 630.0
+margin_bottom = 268.0
+custom_constants/separation = 20
+
+[node name="Label" type="Label" parent="VBoxContainer/PortLabel"]
+margin_right = 253.0
+margin_bottom = 52.0
+custom_fonts/font = ExtResource( 2 )
+text = "Port:            "
+
+[node name="Port" type="LineEdit" parent="VBoxContainer/PortLabel"]
+margin_left = 273.0
+margin_right = 630.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 0, 24 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+placeholder_text = "10000-60000"
+placeholder_alpha = 0.2
+
+[node name="Host_Join" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 288.0
+margin_right = 630.0
+margin_bottom = 384.0
+custom_constants/separation = 0
+
+[node name="JoinButton" type="TextureButton" parent="VBoxContainer/Host_Join"]
+margin_right = 315.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 192, 96 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="CreateButton" type="TextureButton" parent="VBoxContainer/Host_Join"]
+margin_left = 315.0
+margin_right = 630.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 192, 96 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+expand = true
+stretch_mode = 5
+[connection signal="text_changed" from="VBoxContainer/NameLabel/Name" to="." method="_on_Name_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/IPLabel/IP" to="." method="_on_IP_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/PortLabel/Port" to="." method="_on_Port_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Host_Join/JoinButton" to="." method="_on_JoinButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/Host_Join/CreateButton" to="." method="_on_CreateButton_pressed"]
