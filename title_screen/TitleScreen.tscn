@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://title_screen/Images/Bgd.png" type="Texture" id=1]
 [ext_resource path="res://title_screen/fonts/THE AFFORD.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://title_screen/buttons/new_game.tscn" type="PackedScene" id=3]
 [ext_resource path="res://title_screen/buttons/Exit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://title_screen/buttons/Help.tscn" type="PackedScene" id=5]
+[ext_resource path="res://title_screen/buttons/About.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -34,53 +36,57 @@ size_flags_vertical = 3
 margin_right = 1120.0
 margin_bottom = 115.0
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.0352941, 0.0352941, 0.192157, 1 )
+custom_colors/font_color = Color( 0.811765, 0.709804, 0.231373, 1 )
 text = "Golden Dragon"
 align = 2
 
 [node name="CenterRow" type="HBoxContainer" parent="Menu"]
 margin_top = 119.0
 margin_right = 1120.0
-margin_bottom = 809.0
+margin_bottom = 600.0
 size_flags_vertical = 3
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow"]
 margin_right = 558.0
-margin_bottom = 690.0
+margin_bottom = 481.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="VBoxContainer" parent="Menu/CenterRow"]
 margin_left = 562.0
 margin_right = 1120.0
-margin_bottom = 690.0
+margin_bottom = 481.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 6
 
-[node name="New Game" parent="Menu/CenterRow/Button" instance=ExtResource( 3 )]
+[node name="Space" type="VBoxContainer" parent="Menu/CenterRow/Button"]
 margin_right = 558.0
-margin_bottom = 80.0
-
-[node name="Exit" parent="Menu/CenterRow/Button" instance=ExtResource( 4 )]
-margin_top = 86.0
-margin_right = 558.0
-margin_bottom = 166.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu/CenterRow/Button"]
-margin_top = 172.0
-margin_right = 558.0
-margin_bottom = 690.0
+margin_bottom = 65.0
 size_flags_vertical = 3
 
-[node name="Settings" type="Button" parent="Menu/CenterRow/Button/HBoxContainer"]
-margin_left = 320.0
-margin_right = 380.0
-margin_bottom = 60.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
+[node name="New Game" parent="Menu/CenterRow/Button" instance=ExtResource( 3 )]
+margin_top = 71.0
+margin_right = 558.0
+margin_bottom = 151.0
 
-[node name="Help" type="Button" parent="Menu/CenterRow/Button/HBoxContainer"]
-margin_left = 480.0
-margin_right = 540.0
-margin_bottom = 60.0
+[node name="Exit" parent="Menu/CenterRow/Button" instance=ExtResource( 4 )]
+margin_top = 157.0
+margin_right = 558.0
+margin_bottom = 237.0
+
+[node name="Help" parent="Menu/CenterRow/Button" instance=ExtResource( 5 )]
+margin_top = 243.0
+margin_right = 558.0
+margin_bottom = 323.0
+
+[node name="About" parent="Menu/CenterRow/Button" instance=ExtResource( 6 )]
+margin_top = 329.0
+margin_right = 558.0
+margin_bottom = 409.0
+
+[node name="Space2" type="VBoxContainer" parent="Menu/CenterRow/Button"]
+margin_top = 415.0
+margin_right = 558.0
+margin_bottom = 481.0
+size_flags_vertical = 3
